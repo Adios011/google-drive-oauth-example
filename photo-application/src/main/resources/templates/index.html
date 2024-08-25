@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Google Drive Photos</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+  <h1>Welcome to Photo Resizer Web Service</h1>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#">Google Drive Photos</a>
+          </div>
+      </div>
+  </nav>
+  <div class="container">
+      <h1>Authorize with Google Drive</h1>
+      <p>Click the link below to authorize and list your Google Drive photos.</p>
+      <a th:href="@{/listPhotos/userId}" class="btn btn-primary btn-lg">Authorize and List Photos</a>
+  </div>
+</body>
+</html>

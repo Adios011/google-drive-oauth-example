@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Photos</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .photo-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .photo-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .photo-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .photo-item h4 {
+            margin: 10px 0;
+        }
+        .resize-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Your Photos</h1>
+<div class="photo-list">
+  <div th:each="photo : ${photoList}" class="photo-item">
+    <img th:src="${photo.thumbnailLink}" alt="Photo Thumbnail"/>
+    <h4 th:text="${photo.name}">Photo Name</h4>
+    <a th:href="@{/resize/{fileId}(fileId=${photo.id})}" class="resize-button">Resize Photo</a>
+  </div>
+</div>
+</body>
+</html>
